@@ -34,3 +34,14 @@ export const CocktailImage = styled.img`
   width: 100%;
 `;
 export const TextImage = styled.img``;
+
+export const Price = styled.p`
+  font-size: 26px;
+  text-align: center;
+`;
+
+export const Title = styled.h1`
+  font-size: 36px;
+  text-align: center;
+  padding-top: 1rem;
+`;

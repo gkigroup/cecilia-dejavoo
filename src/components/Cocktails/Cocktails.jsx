@@ -1,7 +1,15 @@
 import React from 'react';
 import Api from 'lib/api';
 import { cocktails } from 'data';
-import { Container, Wrapper, Item, CocktailImage, TextImage } from './styles';
+import {
+  Container,
+  Wrapper,
+  Item,
+  CocktailImage,
+  TextImage,
+  Price,
+  Title,
+} from './styles';
 
 const Cocktails = () => {
   const handleClick = async (price) => {
@@ -39,10 +47,12 @@ const Cocktails = () => {
 
   return (
     <Container>
+      <Title>Cecilia Z-Credit API Integration</Title>
       <Wrapper>
         {cocktails.map((cocktail) => (
           <Item onClick={() => handleClick(cocktail.price)}>
             <CocktailImage src={cocktail.url} alt={cocktail.title} />
+            <Price>${cocktail.price} Only</Price>
             <TextImage src={cocktail.text} alt={cocktail.title} />
           </Item>
         ))}
