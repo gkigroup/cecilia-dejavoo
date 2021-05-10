@@ -9,8 +9,9 @@ class Api {
       'https://pci.zcredit.co.il/ZCreditWS/api/Transaction/CommitFullTransaction';
   }
 
-  transaction(data) {
-    return axios.post(`${this.apiUrl}`, data, this.config);
+  async transaction(data) {
+    const res = await axios.post(`${this.apiUrl}`, data, this.config);
+    return res.data.HasError;
   }
 }
 

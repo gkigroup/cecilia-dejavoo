@@ -42,15 +42,17 @@ const Cocktails = () => {
       TransactionUniqueIdForQuery: '',
     };
 
-    await new Api().transaction(obj);
+    const res = await new Api().transaction(obj);
+    if (!res) alert('Approved');
+    if (res) alert('Denied');
   };
 
   return (
     <Container>
       <Title>Cecilia Z-Credit API Integration</Title>
       <Wrapper>
-        {cocktails.map((cocktail) => (
-          <Item onClick={() => handleClick(cocktail.price)}>
+        {cocktails.map((cocktail, key) => (
+          <Item key={key} onClick={() => handleClick(cocktail.price)}>
             <CocktailImage src={cocktail.url} alt={cocktail.title} />
             <Price>${cocktail.price} Only</Price>
             <TextImage src={cocktail.text} alt={cocktail.title} />
